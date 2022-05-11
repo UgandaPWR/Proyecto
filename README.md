@@ -1,2 +1,2 @@
 # Proyecto
-Integrantes: Flavio Taccarelli, Mateo López y Federico Machado
+Integrantes: Flavio Taccarelli, Mateo López, Federico Machado Y Steven Cecilia
