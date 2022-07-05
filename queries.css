@@ -1,0 +1,15 @@
+@media screen and (max-width: 690px) {
+  .nav-box__Item {
+    display: none;
+  }
+  nav {
+    padding: 0.4rem 4rem;
+  }
+  nav::after {
+    display: contents;
+    content: "⋮";
+    color: #b8dfc9;
+    font-size: 1.8rem;
+    font-weight: 1000;
+  }
+}
