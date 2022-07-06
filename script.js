@@ -3,22 +3,49 @@ var z = 1;
 var d = 0;
 var y = 0;
 var images = [];
+var dark = false;
 var time = 5000;
-const arrowScroll = document.getElementsByClassName("arrow");
-var container = document.querySelector(".body-container");
+const arrowScroll = document.querySelector(".arrowScroll");
+const container = document.querySelector(".main-wrapper__container");
+const target = document.querySelectorAll(".invisible");
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      entry.target.classList.toggle("fadeIn", entry.isIntersecting);
+    });
+    console.log(entries);
+  },
+  { threshold: 0.6 }
+);
+target.forEach((element) => {
+  observer.observe(element);
+});
 
-images[0] = "farm1.webp";
-images[1] = "farm2.jpg";
-images[2] = "farm3.jpg";
-images[3] = "farm4.jpg";
+images[0] = "media/farm1.webp";
+images[1] = "media/farm2.jpg";
+images[2] = "media/farm3.jpg";
+images[3] = "media/farm4.jpg";
 
+function switchTheme() {
+  if (dark == false) {
+    document.switchTheme.src = "svg/sun.svg";
+    dark = true;
+  } else {
+    document.switchTheme.src = "svg/moon.svg";
+    dark = false;
+  }
+  document.body.classList.toggle("dark");
+  document.querySelector(".nav__switchTheme").value = true;
+  if (document.querySelector(".nav__switchTheme").value == true) {
+  }
+}
+//scroll arrow
 function scrollDown() {
   container.scrollIntoView(true, { block: "end", behavior: "smooth" });
-  console.log("YEAh");
 }
+//change image auto-slides
 function chImg() {
   document.slide2.src = images[y];
-
   document.slide1.src = images[i];
   if (z < 1) {
     if (y < images.length - 1) {
@@ -44,4 +71,8 @@ function chImg() {
   }
   setTimeout("chImg()", time);
 }
+
+document
+  .querySelector(".nav__switchTheme")
+  .addEventListener("click", switchTheme);
 window.onload = chImg;

@@ -2,9 +2,9 @@ body {
   --accentColor: #1b996e;
   --lightColor: #b8dfc9;
   --textColor: rgb(18, 18, 20);
-  --backgroundColor: white;
+  --backgroundColor: rgb(229, 229, 229);
   --foregroundColor: #005c4d;
-  --buttonTextColor: white;
+  --buttonTextColor: rgb(229, 229, 229);
 }
 .dark {
   --accentColor: #1b996e;
